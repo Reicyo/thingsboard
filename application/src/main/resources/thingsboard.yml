@@ -18,7 +18,7 @@ server:
   # Server bind address
   address: "${HTTP_BIND_ADDRESS:0.0.0.0}"
   # Server bind port
-  port: "${HTTP_BIND_PORT:8080}"
+  port: "${HTTP_BIND_PORT:8081}"
   # Server forward headers strategy
   forward_headers_strategy: "${HTTP_FORWARD_HEADERS_STRATEGY:NONE}"
   # Server SSL configuration
@@ -535,12 +535,19 @@ spring.servlet.multipart.max-request-size: "50MB"
 spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation: "true"
 spring.jpa.properties.hibernate.order_by.default_null_ordering: "${SPRING_JPA_PROPERTIES_HIBERNATE_ORDER_BY_DEFAULT_NULL_ORDERING:last}"
 
+install:
+  data_dir: E:\IOT projects\thingsboard\thingsboard\application\src\main\data
 # SQL DAO Configuration
 spring:
   data:
     jpa:
       repositories:
         enabled: "true"
+  redis:
+    host: 182.92.223.22
+    port: 6379
+    timeout: 50000
+    password: JianDeng2021
   jpa:
     properties:
       javax.persistence.query.timeout: "${JAVAX_PERSISTENCE_QUERY_TIMEOUT:30000}"
@@ -549,9 +556,9 @@ spring:
       ddl-auto: "none"
   datasource:
     driverClassName: "${SPRING_DRIVER_CLASS_NAME:org.postgresql.Driver}"
-    url: "${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/thingsboard}"
-    username: "${SPRING_DATASOURCE_USERNAME:postgres}"
-    password: "${SPRING_DATASOURCE_PASSWORD:postgres}"
+    url: "${SPRING_DATASOURCE_URL:jdbc:postgresql://pgm-bp1ofdj28es9llv0yo.pg.rds.aliyuncs.com:1921/iot_lst}"
+    username: "${SPRING_DATASOURCE_USERNAME:jiandeng}"
+    password: "${SPRING_DATASOURCE_PASSWORD:a19900414$}"
     hikari:
       maximumPoolSize: "${SPRING_DATASOURCE_MAXIMUM_POOL_SIZE:16}"
 
